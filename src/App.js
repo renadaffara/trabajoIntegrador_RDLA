@@ -1,10 +1,12 @@
 import {BrowserRouter, Link, Route, Switch} from 'react-router-dom'; 
 import Footer from './componentes/Footer/Footer';
 import Header from './componentes/Header/Header';
+import Home from './Screens/Home/Home';
 
 function App() {
   return (
     <div className="App">
+      <h1>Udesa Pelis</h1>
       <Header/>
 
         <Switch>
