@@ -1,5 +1,6 @@
 import {BrowserRouter, Link, Route, Switch} from 'react-router-dom'; 
 import Footer from './componentes/Footer/Footer';
+import Header from './componentes/Header/Header';
 
 function App() {
   return (
@@ -8,13 +9,13 @@ function App() {
 
         <Switch>
           <Route path="/" exact={true} component={Home} />
-          <Route path="/detail/:id" component={Detail} />
+          {/* <Route path="/detail/:id" component={Detail} />
           <Route path="/favourites" component={Favourite} />
           <Route path="/login" component={Login} />
           <Route path="/SearchResults" component={SearchResults} />
           <Route path="/movies" component={Movies} />
           <Route path="/series" component={Series} />
-          <Route path="/*" component={NotFound} />
+          <Route path="/*" component={NotFound} /> */}
         </Switch>
 
       <Footer/>
