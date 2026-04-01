@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import {BrowserRouter, Link, Route, Switch} from 'react-router-dom'; 
+import Footer from './componentes/Footer/Footer';
 
 function App() {
   return (
