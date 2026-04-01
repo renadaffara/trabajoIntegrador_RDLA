@@ -4,17 +4,19 @@ import {Link} from 'react-router-dom';
 function Header(props){
     return(
         <nav>
-            <ul className="menu">
-            <li> <Link to="/" >Home</Link> </li>
-            <li> <Link to="/AboutUs" >Contact</Link> </li>
-            <li> <Link to= "/" >Personajes </Link> </li>
+            <ul className="Menu">
+            <li > <Link to="/" >Home</Link> </li>
+            <li> <Link to="/peliculas" >Peliculas</Link> </li>
+            <li> <Link to= "/series" >Series</Link> </li>
+            <li> <Link to= "/favoritas" >Favoritas</Link> </li>
+            <li> <Link to= "/registro" >Registro</Link> </li>
+            <li> <Link to= "/login" >Login</Link> </li>
             </ul>
 
-
-            <ul className="user">
+            <ul className="Logo">
                 <li>
-                    Nombre usuario 
-                    <img src="/img/user.jpg" alt="user" />
+                    Udesa Pelis
+                    <img src="/img/udesapelis.png" />
                 </li>
             </ul>
         </nav>
