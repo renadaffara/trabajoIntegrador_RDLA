@@ -1,4 +1,6 @@
-import react from "react";
+import React, { Component } from "react";
+import Card from "../Card/Card";
+
 class Seccionpelis extends Component {
   constructor(props) {
     super(props);
@@ -11,7 +13,6 @@ class Seccionpelis extends Component {
     fetch("https://api.themoviedb.org/3/movie/popular?api_key=7afb554b4adc7b0920bf1ba6053e639e")
       .then(response => response.json())
       .then(data => {
-        console.log(data)
         this.setState({
           datos: data.results
         });
@@ -19,19 +20,16 @@ class Seccionpelis extends Component {
       .catch(error => console.log(error));
   }
 
- 
-
   render() {
     return (
-      <section className='seccionpelis'>
+      <section className="seccionpelis">
         {this.state.datos.length === 0 ? (
           <h3>Cargando...</h3>
         ) : (
-          this.state.datos.map(personaje => (
+          this.state.datos.map(pelicula => (
             <Card
-              key={personaje.id}
-              info={personaje}
-              borrar={() => this.borrarPersonaje(personaje.id)}
+              key={pelicula.id}
+              info={pelicula}
             />
           ))
         )}
@@ -41,3 +39,5 @@ class Seccionpelis extends Component {
 }
 
 export default Seccionpelis;
+
+

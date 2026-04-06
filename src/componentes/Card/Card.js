@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import {Link} from "react-router-dom";
 
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
 class Card extends Component {
   constructor(props) {
     super(props);
@@ -10,35 +13,39 @@ class Card extends Component {
   }
 
   render() {
+    const { info } = this.props;
+
     return (
-      
-      <article>
-        <img src={this.props.info.image} alt={this.props.info.name} />
-        <h2>{this.props.info.name}</h2>
-        <p>{this.props.info.status}</p>
-        <p>{this.props.info.species}</p>
+      <article className="card">
+        <img
+          src={`https://image.tmdb.org/t/p/w342/${info.poster_path}`}
+          alt={info.title}
+        />
+
+        <h2>{info.title}</h2>
 
         <button
-          className='more'
-          onClick={() => this.setState({ mostrar: !this.state.mostrar })}
+          onClick={() =>
+            this.setState({ mostrar: !this.state.mostrar })
+          }
         >
-          Ver más
+          Ver descripción
         </button>
 
         {this.state.mostrar && (
-          <section className='extra'>
-            <p>Origen: {this.props.info.origin.name}</p>
-            <li> <Link to="/UnPersonaje/:id" >About</Link> </li>
+          <section>
+            <p>{info.overview}</p>
 
+            <Link to={"/detail/${info.id}"}>
+              Ir a detalle
+            </Link>
           </section>
         )}
 
-        <button className='delete' onClick={this.props.borrar}>
-          Borrar
-        </button>
       </article>
     );
   }
 }
 
 export default Card;
+
