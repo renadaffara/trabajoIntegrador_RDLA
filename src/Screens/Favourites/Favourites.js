@@ -10,15 +10,15 @@ constructor(props) {
 
 render() {
          return (
-<section>
-<h1>Favoritos</h1>
-{this.state.favs.map(id => (
-<p key={id}>{id}</p>
-))}
-</section>
-);
-}
-}
+           <section>
+             <h1>Favoritos</h1>
+             {this.state.favs.map(id => (
+              <p key={id}>{id}</p>
+            ))}
+          </section>
+          );
+        }
+      }
 
 export default Favorites;
 
