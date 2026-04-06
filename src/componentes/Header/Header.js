@@ -12,13 +12,6 @@ function Header(props){
             <li> <Link to= "/registro" >Registro</Link> </li>
             <li> <Link to= "/login" >Login</Link> </li>
             </ul>
-
-            <ul className="Logo">
-                <li>
-                    Udesa Pelis
-                    <img src="/img/udesapelis.png" />
-                </li>
-            </ul>
         </nav>
     )
 };
