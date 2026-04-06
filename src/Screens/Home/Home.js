@@ -1,12 +1,13 @@
 import React from "react";
+import Seccionpelis from "../../componentes/Seccionpelis/Seccionpelis";
 function Home(){
     return(
-     <div>
-        <h1>Peliculas populares</h1>
-        
-        <h2>Series populares</h2>
-        
-     </div>
+     <main>
+       <h1>Peliculas Populares</h1>
+        <Seccionpelis/>
+     </main>
     )
 }
 export default Home
+
+
