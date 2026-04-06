@@ -10,36 +10,20 @@ class Card extends Component {
   }
 
   render() {
-    const { info } = this.props;
+    
 
     return (
-      <article className="card">
-        <img
-          src={`https://image.tmdb.org/t/p/w342/${info.poster_path}`}
-          alt={info.title}
-        />
-
-        <h2>{info.title}</h2>
-
-        <button
-          onClick={() =>
-            this.setState({ mostrar: !this.state.mostrar })
-          }
-        >
-          Ver descripción
-        </button>
-
-        {this.state.mostrar && (
-          <section>
-            <p>{info.overview}</p>
-
-            <Link to={"/detail/${info.id}"}>
-              Ir a detalle
-            </Link>
-          </section>
-        )}
-
-      </article>
+       <article class="single-card-movie">
+                <img src="https://image.tmdb.org/t/p/w500/ombsmhYUqR4qqOLOxAyr5V8hbyv.jpg" class="card-img-top"
+                    alt="...">
+                <div class="cardBody">
+                    <h5 class="card-title">Superman</h5>
+                    <p class="card-text">Superman, a journalist in Metropolis, embarks on a journey to reconcile his
+                        Kryptonian heritage with his human upbringing as Clark Kent.</p>
+                    <a href="movie.html" class="btn btn-primary">Ver más</a>
+                    <a href="" class="btn alert-primary">♥️</a>
+                </div>
+            </article>
     );
   }
 }
