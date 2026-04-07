@@ -2,9 +2,10 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./Screens/Home/Home";
 import Detail from "./Screens/Detail/Detail";
 import Login from "./Screens/Login/Login";
-import Register from "./Screens/Register/Register";
+import Register from "./Screens/Registrer/Registrer";
 import Favourites from "./Screens/Favourites/Favourites";
 import NotFound from "./Screens/NotFound/NotFound";
+import Header from "./componentes/Header/Header";
 
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
           <Route path="/favourites" component={Favourites} />
           <Route path="/login" component={Login} />
           <Route path="/SearchResults" component={SearchResults} />
-          <Route path="/register" component={Register} />
+          <Route path="/register" component={Registrer} />
           <Route path="" component={NotFound} />
         </Switch>
 

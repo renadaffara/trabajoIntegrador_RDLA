@@ -1,9 +1,12 @@
-import React from "react"; 
+import React from "react";
+import "./Footer.css";
 
-function Footer(){
-    return(
-        <p className="Footer"> Renata Daffara | Lara antonena </p>
-    )
+function Footer() {
+  return (
+    <footer className="footer">
+      <p>Renata Daffara | Lara Antonena</p>
+    </footer>
+  );
 }
 
 export default Footer;
