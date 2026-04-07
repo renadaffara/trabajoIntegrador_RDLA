@@ -2,11 +2,12 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./Screens/Home/Home";
 import Detail from "./Screens/Detail/Detail";
 import Login from "./Screens/Login/Login";
-import Register from "./Screens/Registrer/Registrer";
+import Registrer from "./Screens/Registrer/Registrer";
 import Favourites from "./Screens/Favourites/Favourites";
 import NotFound from "./Screens/NotFound/NotFound";
 import Header from "./componentes/Header/Header";
-
+import Footer from "./componentes/Footer/Footer";
+import SearchResults from "./Screens/SearchResults/SearchResults";
 
 function App() {
   return (

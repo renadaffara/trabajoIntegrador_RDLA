@@ -1,8 +1,6 @@
-.logo {
-    margin: 0;
-    color: #333;
+.logo img {
+    height: 100px;
 }
-
 .menu {
     list-style: none;
     display: flex;

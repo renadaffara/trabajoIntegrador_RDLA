@@ -5,7 +5,9 @@ import "./Header.css";
 function Header(props){
     return(
     <nav className="nav">
-      <h2 className="logo">MovieApp</h2>
+      <h2 className="logo">
+      <img src="/img/udesapelis.png" alt="Logo" />
+      </h2>
 
       <ul className="menu">
         <li><Link to="/">Home</Link></li>
