@@ -3,7 +3,7 @@ import Home from "./Screens/Home/Home";
 import Detail from "./Screens/Detail/Detail";
 import Login from "./Screens/Login/Login";
 import Register from "./Screens/Register/Register";
-import Favorites from "./Screens/Favourites/Favourites";
+import Favourites from "./Screens/Favourites/Favourites";
 import NotFound from "./Screens/NotFound/NotFound";
 
 
@@ -16,7 +16,7 @@ function App() {
         <Switch>
           <Route path="/" exact={true} component={Home} />
           <Route path="/detail/:id" component={Detail} />
-          <Route path="/favourites" component={Favorites} />
+          <Route path="/favourites" component={Favourites} />
           <Route path="/login" component={Login} />
           <Route path="/SearchResults" component={SearchResults} />
           <Route path="/register" component={Register} />
