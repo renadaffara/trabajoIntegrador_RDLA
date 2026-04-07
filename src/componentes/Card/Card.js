@@ -1,29 +1,29 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-class Card extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      mostrar: false
-    };
-  }
+function Card(props) {
+  return (
+    <article className="single-card-movie">
+      <img
+        src={`https://image.tmdb.org/t/p/w500/${props.img}`}
+        className="card-img-top"
+        alt={props.title}
+      />
 
-  render() {
+      <div className="card-body">
+        <h5 className="card-title">{props.title}</h5>
 
+        <p className="card-text">{props.description}</p>
 
-    return (
-      <article class="single-card-movie">
-        <img src="https://image.tmdb.org/t/p/w500/ombsmhYUqR4qqOLOxAyr5V8hbyv.jpg" class="card-img-top" alt="..."/>
-          <div class="cardBody">
-            <h5 class="card-title">Superman</h5>
-            <p class="card-text">Superman, a journalist in Metropolis, embarks on a journey to reconcile his
-              Kryptonian heritage with his human upbringing as Clark Kent.</p>
-            <a href="movie.html" class="btn btn-primary">Ver más</a>
-            <a href="" class="btn alert-primary">♥️</a>
-          </div>
-      </article>
-    );
-  }
+        <Link to={`/movie/${props.id}`} className="btn btn-primary">
+          Ver más
+        </Link>
+
+        <button className="btn alert-primary">
+          ♥️
+        </button>
+      </div>
+    </article>
+  );
+}
 export default Card;
-
