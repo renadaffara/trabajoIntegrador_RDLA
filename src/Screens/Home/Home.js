@@ -5,7 +5,7 @@ function Home(){
      <main>
        <h1>Peliculas Populares</h1>
         <Seccionpelis/>
-     </main>
+        </main>
     )
 }
 export default Home
