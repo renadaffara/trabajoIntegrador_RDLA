@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Card.css";
 
 function Card(props) {
   return (
@@ -10,7 +11,7 @@ function Card(props) {
         alt={props.title}
       />
 
-      <div className="card-body">
+      <div className="cardBody">
         <h5 className="card-title">{props.title}</h5>
 
         <p className="card-text">{props.description}</p>
