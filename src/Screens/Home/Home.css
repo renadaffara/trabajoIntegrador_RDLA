@@ -8,7 +8,7 @@
 }
 
 .titulo-seccion {
-    background-color: #cce5ff;
+    background-color: #ffccfa;
     padding: 10px;
     border-radius: 4px;
     margin: 20px 0 10px 0;
@@ -21,6 +21,6 @@
 }
 
 .btn-success {
-    background-color: green;
+    background-color: rgb(174, 88, 133);
     color: white;
 }

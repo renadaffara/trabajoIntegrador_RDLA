@@ -5,9 +5,11 @@ import "./Header.css";
 function Header(props){
     return(
     <nav className="nav">
-      <h2 className="logo">
-      <img src="/img/udesapelis.png" alt="Logo" />
-      </h2>
+      <div className="logo-container">
+        <img src="/img/udesapelis.png" alt="Logo" />
+        <h2 className="logo-text">Udesa Pelis</h2>
+      </div>
+
 
       <ul className="menu">
         <li><Link to="/">Home</Link></li>

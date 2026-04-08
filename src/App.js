@@ -12,7 +12,6 @@ import SearchResults from "./Screens/SearchResults/SearchResults";
 function App() {
   return (
     <div className="App">
-      <h1>Udesa Pelis</h1>
       <Header/>
 
         <Switch>

@@ -1,10 +1,12 @@
 import React from "react";
 import Seccionpelis from "../../componentes/Seccionpelis/Seccionpelis";
 import "./Home.css"; 
+import Buscador from "../../componentes/Buscador/Buscador";
 function Home(){
     return(
           <main className="home">
-       <h1>UdeSA Movies</h1>
+        <Buscador/>
+
         <h2 className="titulo-seccion">Popular movies this week</h2>
       | <Seccionpelis />
 
