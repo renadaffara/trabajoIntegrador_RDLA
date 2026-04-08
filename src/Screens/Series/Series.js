@@ -1,27 +1,26 @@
 import React, { Component } from "react";
-import Buscador from "../Buscador/Buscador";
 import Card from "../Card/Card";
+import Buscador from "../Buscador/Buscador";
 
 class Series extends Component {
   constructor(props) {
     super(props);
     this.state = {
       series: [],
-      seriesFiltradas: [],
+      pagina: 1,
       valor: ""
     };
   }
 
   componentDidMount() {
-    fetch("https://api.themoviedb.org/3/tv/popular?api_key=7afb554b4adc7b0920bf1ba6053e639e")
-      .then(res => res.json())
-      .then(data =>
+    fetch("https://api.themoviedb.org/3/tv/popular?api_key=TU_API_KEY&page=1")
+      .then((response) => response.json())
+      .then((data) => {
         this.setState({
-          series: data.results,
-          seriesFiltradas: data.results
-        })
-      )
-      .catch(err => console.log(err));
+          series: data.results
+        });
+      })
+      .catch((error) => console.log(error));
   }
 
   controlarCambios(event) {
@@ -30,37 +29,50 @@ class Series extends Component {
     });
   }
 
-  filtrarSeries(event) {
-    event.preventDefault();
-
-    let resultado = this.state.series.filter(serie =>
-      serie.name.includes(this.state.valor)
+  cargarMas() {
+    this.setState(
+      {
+        pagina: this.state.pagina + 1
+      },
+      () => {
+        fetch(
+          "https://api.themoviedb.org/3/tv/popular?api_key=TU_API_KEY&page=" +
+            this.state.pagina
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            this.setState({
+              series: this.state.series.concat(data.results)
+            });
+          })
+          .catch((error) => console.log(error));
+      }
     );
-
-    this.setState({
-      seriesFiltradas: resultado
-    });
   }
 
   render() {
+    let seriesFiltradas = this.state.series.filter((serie) =>
+      serie.name.toLowerCase().includes(this.state.valor.toLowerCase())
+    );
+
     return (
-      <div className="container">
-        <h2 className="alert alert-primary">Todas las series</h2>
+      <section>
+        <h2>Series</h2>
 
-        <Buscador
-          valor={this.state.valor}
-          controlarCambios={(event) => this.controlarCambios(event)}
-          filtrar={(event) => this.filtrarSeries(event)}
-        />
+        <Buscador/>
 
-        <section className="row cards all-movies" id="series">
-          {this.state.seriesFiltradas.map(serie => (
+        {this.state.series.length === 0 ? (
+          <h3>Cargando...</h3>
+        ) : (
+          seriesFiltradas.map((serie) => (
             <Card key={serie.id} info={serie} />
-          ))}
-        </section>
-      </div>
+          ))
+        )}
+
+        <button onClick={() => this.cargarMas()}>Cargar más</button>
+      </section>
     );
   }
 }
 
-export default Series;;
+export default Series;
