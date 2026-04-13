@@ -12,14 +12,11 @@ class Buscador extends Component {
   evitarSubmit(event) {
     event.preventDefault();
 
-    
+
   }
 
   controlarCambios(event) {
-    this.setState({
-      valor: event.target.value
-    });
-
+    this.setState({valor: event.target.value});
   }
 
   render() {

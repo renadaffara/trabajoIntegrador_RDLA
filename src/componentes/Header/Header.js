@@ -16,7 +16,7 @@ function Header(props){
         <li><Link to="/peliculas">Peliculas</Link></li>
         <li><Link to="/series">Series</Link></li>
         <li><Link to="/favoritas">Favourites</Link></li>
-        <li><Link to="/registro">Register</Link></li>
+        <li><Link to="/register">Registrer</Link></li>
         <li><Link to="/login">Login</Link></li>
       </ul>
     </nav>
