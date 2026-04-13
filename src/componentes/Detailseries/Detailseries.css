@@ -1,0 +1,27 @@
+.Detailcontenedor {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.Detailcontenedor .Detallitos {
+    width: 40%;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 6px;
+}
+
+.Titulop {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.overview {
+    font-size: 0.95rem;
+    color: #0d0404;
+}
+
+.extra {
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
