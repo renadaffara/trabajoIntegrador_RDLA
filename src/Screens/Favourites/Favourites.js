@@ -10,7 +10,15 @@ class Favorites extends Component {
   }
 
   componentDidMount() {
+    let favoritos = localStorage.getItem("favs")
+    let favoritos_parse
+
+
+
+
     let favs = JSON.parse(localStorage.getItem("favs")) || [];
+
+
 
     favs.forEach(id => {
       fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=7afb554b4adc7b0920bf1ba6053e639e`)

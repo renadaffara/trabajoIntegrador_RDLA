@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Card.css";
 
@@ -19,10 +19,12 @@ function Card(props) {
         <Link to={`/movie/${props.id}`} className="btn btn-primary">
           Ver más
         </Link>
-
-        <button className="btn alert-primary">
-          ♥️
-        </button>
+        {/* let favoritasToString = JSON.stringify(seccionpelis);
+         localStorage.setItems("favs", favoritasToString)
+         let recuperoStorage = localStorage.getItem("favs")*/}
+         <Link to="/favoritas" className="btn alert-primary">
+            ♥️
+          </Link>
       </div>
     </article>
   );

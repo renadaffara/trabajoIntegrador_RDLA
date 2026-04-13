@@ -30,7 +30,10 @@ class Seccionpelis extends Component {
           this.state.datos.map(pelicula => (
             <Card
               key={pelicula.id}
-              info={pelicula}
+              id={pelicula.id}
+              img={pelicula.poster_path}
+              title={pelicula.title}
+              description={pelicula.overview}
             />
           ))
         )}

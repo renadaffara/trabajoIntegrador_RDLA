@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./Screens/Home/Home";
-import Detail from "./Screens/Detail/Detail";
 import Login from "./Screens/Login/Login";
 import Registrer from "./Screens/Registrer/Registrer";
 import Favourites from "./Screens/Favourites/Favourites";
@@ -8,7 +7,6 @@ import NotFound from "./Screens/NotFound/NotFound";
 import Header from "./componentes/Header/Header";
 import Footer from "./componentes/Footer/Footer";
 import SearchResults from "./Screens/SearchResults/SearchResults";
-import Series from "./Screens/Series/Series";
 
 function App() {
   return (
@@ -17,11 +15,12 @@ function App() {
 
         <Switch>
           <Route path="/" exact={true} component={Home} />
-          <Route path="/detail/:id" component={Detail} />
           <Route path="/favourites" component={Favourites} />
           <Route path="/login" component={Login} />
           <Route path="/SearchResults" component={SearchResults} />
           <Route path="/register" component={Registrer} />
+           <Route path="/movie/:id" component={Detail} />
+           <Route path="/favoritas" component={Favourites} />
           <Route path="" component={NotFound} />
         </Switch>
 
