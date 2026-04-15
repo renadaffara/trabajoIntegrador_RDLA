@@ -7,6 +7,7 @@ import NotFound from "./Screens/NotFound/NotFound";
 import Header from "./componentes/Header/Header";
 import Footer from "./componentes/Footer/Footer";
 import SearchResults from "./Screens/SearchResults/SearchResults";
+import Detail from "./Screens/Detail/Detail";
 
 function App() {
   return (

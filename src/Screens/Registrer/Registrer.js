@@ -38,14 +38,14 @@ class Registrer extends Component {
                 <label htmlFor="email">Email</label>
                 <input
                   className="form-control" 
-                  type="email"placeholder="Ingresá tu email" onChange={(eventoo) => this.controlarEmail(eventoo)} value={this.state.email}/>
+                  type="email" placeholder="Ingresá tu email" onChange={(eventoo) => this.controlarEmail(eventoo)} value={this.state.email}/>
               </div>
 
               <div className="form-group">
                 <label htmlFor="password">Contraseña</label>
                 <input
                   className="form-control"
-                  type="password"placeholder="Ingresá tu contraseña" onChange={(eventoo) => this.controlarPassword(eventoo)} value={this.state.password}/>
+                  type="password" placeholder="Ingresá tu contraseña" onChange={(eventoo) => this.controlarPassword(eventoo)} value={this.state.password}/>
               </div>
 
               <button type="submit" className="btn btn-primary btn-block">

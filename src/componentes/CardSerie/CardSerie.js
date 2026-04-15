@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Card.css";
 
-class Card extends Component {
+class CardSerie extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -40,7 +40,7 @@ class Card extends Component {
 
   render() {
     return (
-      <article className="single-card-movie">
+      <article className="single-card-serie">
         <img
           src={`https://image.tmdb.org/t/p/w500/${this.props.img}`}
           className="card-img-top"
@@ -51,7 +51,7 @@ class Card extends Component {
           <h5 className="card-title">{this.props.title}</h5>
           <p className="card-text">{this.props.description}</p>
 
-          <Link to={`/movie/${this.props.id}`} className="btn btn-primary">
+          <Link to={`/serie/${this.props.id}`} className="btn btn-primary">
             Ver más
           </Link>
           <button onClick={this.agregarfavoritas} className="btn alert-primary">
@@ -63,4 +63,4 @@ class Card extends Component {
   }
 }
 
-export default Card;
+export default CardSerie;
