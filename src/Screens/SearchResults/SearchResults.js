@@ -1,9 +1,7 @@
-import React, { Component } from "react";
 
 import React, { Component } from "react";
-import Buscador from "../Buscador/Buscador";
-import Card from "../Card/Card";
-
+import Buscador from "../../componentes/Buscador/Buscador";
+import Card from "../../componentes/Card/Card";
 class SearchResults extends Component {
   constructor(props) {
     super(props);
@@ -14,7 +12,7 @@ class SearchResults extends Component {
 
   buscarPeliculas(texto) {
     fetch(`https://api.themoviedb.org/3/search/movie?api_key=7afb554b4adc7b0920bf1ba6053e639e&query=${texto}`)
-      .then(res => res.json())
+      .then(response => response.json())
       .then(data =>
         this.setState({
           resultados: data.results

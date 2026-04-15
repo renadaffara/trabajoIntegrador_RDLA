@@ -7,6 +7,7 @@ import NotFound from "./Screens/NotFound/NotFound";
 import Header from "./componentes/Header/Header";
 import Footer from "./componentes/Footer/Footer";
 import SearchResults from "./Screens/SearchResults/SearchResults";
+import Movies from "./Screens/Movies/Movies";
 
 function App() {
   return (
@@ -19,8 +20,9 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/SearchResults" component={SearchResults} />
           <Route path="/register" component={Registrer} />
-           <Route path="/movie/:id" component={Detail} />
+           {/* <Route path="/movie/:id" component={Detail} /> */}
            <Route path="/favoritas" component={Favourites} />
+           <Route path="/peliculas" component={Movies} />
           <Route path="" component={NotFound} />
         </Switch>
 

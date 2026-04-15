@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Card from "../Card/Card";
-import "./Seccion.css"
+import "./Seccionseries.css"
 
-class Seccionpelis extends Component {
+class Seccionseries extends Component {
   constructor(props) {
     super(props);
     this.state = {
