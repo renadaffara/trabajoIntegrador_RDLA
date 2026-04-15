@@ -1,17 +1,12 @@
 .search-form {
     padding: .5rem 0;
     margin-bottom: 20px;
-    display: grid;
-    grid-template-columns: 5fr 1fr;
-    column-gap: 5px;
-}
-
-.search-form .btn-sm {
-    line-height: 1;
-    font-size: 0.9rem;
+    display: flex;        
+    gap: 5px;            
 }
 
 .search-form input {
+    flex: 5;              
     border: 1px solid #eab9e0;
     border-radius: 4px;
     padding-top: 5px;
@@ -19,4 +14,10 @@
     vertical-align: middle;
     line-height: 1;
     font-size: 1rem;
+}
+
+.search-form .btn-sm {
+    flex: 1;              
+    line-height: 1;
+    font-size: 0.9rem;
 }

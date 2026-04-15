@@ -9,7 +9,7 @@ function Home(props){
         <Buscador history={props.history} />
 
         <h2 className="titulo-seccion">Popular movies this week</h2>
-      | <Seccionpelis />
+      <Seccionpelis />
 
         <h2 className="titulo-seccion">Movies now playing</h2>
         <Seccionpelis />

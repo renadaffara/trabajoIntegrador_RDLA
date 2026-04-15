@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import "./Detail.css";
+import "./DetailSeries.css";
 
 
 class Detail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      peli: null
+      serie: null
     };
   }
 
@@ -14,30 +14,30 @@ class Detail extends Component {
   componentDidMount() {
     const id = this.props.match.params.id;
 
-    fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=7afb554b4adc7b0920bf1ba6053e639e`)
+    fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=7afb554b4adc7b0920bf1ba6053e639e`)
       .then(response => response.json())
-      .then(data => this.setState({ peli: data }))
+      .then(data => this.setState({ serie: data }))
       .catch(error => console.log(error));
   }
 
   render() {
     return (
       <>
-        {this.state.peli === null ? (
+        {this.state.serie === null ? (
           <h2>Cargando...</h2>
         ) : (
           <section>
             <div className="Detailcontenedor">
             <img 
-              src={`https://image.tmdb.org/t/p/w342/${this.state.peli.poster_path}`}
-              alt={this.state.peli.title}
+              src={`https://image.tmdb.org/t/p/w342/${this.state.serie.poster_path}`}
+              alt={this.state.serie.name}
               className="fotodetalle"
             />
             <div className="Detallitos">
-            <h1 className="Titulop">{this.state.peli.title}</h1>
-            <p className="overview">{this.state.peli.overview}</p>
-            <p className="extra">Fecha: {this.state.peli.release_date}</p>
-            <p className="extra">Rating: {this.state.peli.vote_average}</p>
+            <h1 className="Titulop">{this.state.serie.name}</h1>
+            <p className="overview">{this.state.serie.overview}</p>
+            <p className="extra">Fecha: {this.state.serie.first_air_date}</p>
+            <p className="extra">Rating: {this.state.serie.vote_average}</p>
             </div>
             </div>
           </section>
