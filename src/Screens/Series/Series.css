@@ -1,20 +1,84 @@
-.filter-form {
-    grid-template-columns: 1fr;
+.divEnCartel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.filter-form input {
-    line-height: 1.5;
+.barra_busqueda {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 400px;
 }
 
-.cards {
-    padding: 0.75rem 1.25rem;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 2%;
+.barra_busqueda label {
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
-.cardBody {
-    margin-top: 20px;
+.busqueda {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.divEnCartel > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.movies-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+
+@media (max-width: 768px) {
+  .divEnCartel {
+    padding: 10px;
+  }
+
+  .barra_busqueda {
+    max-width: 100%;
+  }
+
+  .movies-container {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .movies-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
 }

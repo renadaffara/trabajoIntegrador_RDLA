@@ -3,10 +3,10 @@ import Seccionpelis from "../../componentes/Seccionpelis/Seccionpelis";
 import "./Home.css"; 
 import Buscador from "../../componentes/Buscador/Buscador";
 import Seccionseries from "../../componentes/Seccionseries/Seccionseries";
-function Home(){
+function Home(props){
     return(
           <main className="home">
-        <Buscador/>
+        <Buscador history={props.history} />
 
         <h2 className="titulo-seccion">Popular movies this week</h2>
       | <Seccionpelis />

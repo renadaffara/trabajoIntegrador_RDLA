@@ -19,7 +19,7 @@ class Movies extends Component {
       .then(data =>
         this.setState({
           datos: data.results,
-          datosCopia: data.results
+          datos2: data.results
         })
       )
       .catch(error => console.log(error));
@@ -56,7 +56,7 @@ class Movies extends Component {
         data.results.map((peli) => listaPelis.push(peli));
         this.setState({
           datos: listaPelis,
-          datosCopia: listaPelis,
+          datos2: listaPelis,
           page: paginaSiguiente
         })
       })
@@ -95,7 +95,7 @@ class Movies extends Component {
                   overview={peli.overview}
                 />
               ))) : 
-              (this.state.datosCopia.map((peli, idx) => (
+              (this.state.datos2.map((peli, idx) => (
                 <Card
                   key={idx + 1}
                   img={peli.poster_path}

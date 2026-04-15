@@ -5,39 +5,43 @@ class Buscador extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      valor: ""
+      valor: "",
+      valorSelect: ""
     };
   }
 
   evitarSubmit(event) {
     event.preventDefault();
 
+    this.props.history.push(`/SearchResults/${this.state.valor}/${this.state.valorSelect}`)
 
   }
 
   controlarCambios(event) {
-    this.setState({valor: event.target.value});
+    this.setState({ valor: event.target.value });
+  }
+
+  controlarSelect(event) {
+    this.setState({ valorSelect: event.target.value }, () => {
+      console.log(this.state.valorSelect)
+
+    });
   }
 
   render() {
     return (
-      <form 
-        className="search-form"
-        onSubmit={(event) => this.evitarSubmit(event)}
-      >
-        
+      <form className="Buscador" onSubmit={(event) => this.evitarSubmit(event)}>
         <input
           type="text"
-          name="searchData"
-          placeholder="Buscar..."
+          placeholder="Busca tu película..."
           value={this.state.valor}
           onChange={(event) => this.controlarCambios(event)}
         />
-
-        <button type="submit" className="btn btn-success btn-sm">
-          Buscar
-        </button>
-
+        <select value={this.state.valorSelect} onChange={(event) => this.controlarSelect(event)}>
+          <option value="movies">Pelis</option>
+          <option value="tv">Series</option>
+        </select>
+        <button type="submit">Buscar</button>
       </form>
     );
   }
