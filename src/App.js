@@ -7,11 +7,9 @@ import NotFound from "./Screens/NotFound/NotFound";
 import Header from "./componentes/Header/Header";
 import Footer from "./componentes/Footer/Footer";
 import SearchResults from "./Screens/SearchResults/SearchResults";
-<<<<<<< HEAD
 import Detail from "./Screens/Detail/Detail";
-=======
 import Movies from "./Screens/Movies/Movies";
->>>>>>> 97dc059c681dd4f7b6dbdefa6c539acfd172c037
+import DetailSeries from "./Screens/DetailSeries/DetailSeries";
 
 function App() {
   return (
@@ -21,10 +19,11 @@ function App() {
         <Switch>
           <Route path="/" exact={true} component={Home} />
           <Route path="/favourites" component={Favourites} />
-          <Route path="/login" component={Login} />
+         {/* <Route path="/login" component={Login} /} */}
           <Route path="/SearchResults" component={SearchResults} />
           <Route path="/register" component={Registrer} />
-           {/* <Route path="/movie/:id" component={Detail} /> */}
+           <Route path="/movie/:id" component={Detail} />
+           <Route path="/serie/:id" component={DetailSeries} />
            <Route path="/favoritas" component={Favourites} />
            <Route path="/peliculas" component={Movies} />
           <Route path="" component={NotFound} />

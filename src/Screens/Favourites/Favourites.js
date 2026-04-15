@@ -5,29 +5,32 @@ class Favorites extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      peliculasfavs:[] ,
-      seriesfavs:[]
+      peliculasfavs: [],
+      seriesfavs: []
     };
   }
 
   componentDidMount() {
-    this.state.peliculasfavs()
     let storage = localStorage.getItem("favoritas");
     if (storage !== null) {
       let favsobtenidos = JSON.parse(storage);
-      let peliculasfavs = [];
+      let pelisArray = [];
       favsobtenidos.map((id) => {
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=7afb554b4adc7b0920bf1ba6053e639e`)
           .then((response) => response.json())
-          .then((data) => 
-            peliculasfavs.push(data), 
-            this.setState({peliculasfavs: peliculasfavs})
-            )
+          .then((data) => {
+            pelisArray.push(data)
+            this.setState({ peliculasfavs: pelisArray })
+          })
           .catch((error) => console.log(error));
       }
       );
+      console.log(this.state.peliculasfavs)
     }
+     
   }
+
+
   render() {
     return (
       <main>
@@ -47,7 +50,7 @@ class Favorites extends Component {
             ))}
           </section>
         )}
-         <h2 className="alert alert-primary">Series Favoritas</h2>
+        <h2 className="alert alert-primary">Series Favoritas</h2>
         {this.state.seriesfavs.length === 0 ? (
           <h3>No tenés series favoritas</h3>
         ) : (

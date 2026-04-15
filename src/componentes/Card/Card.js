@@ -6,8 +6,12 @@ class Card extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      favoritas: false,
+      esFavorito: false,
     };
+  }
+
+  componentDidMount () {
+    // Find, para encontrar si la pelicula actual (id) esta faveada en el localstorage, y si lo esta atualizamos el estado
   }
 
   agregarfavoritas = () => {
@@ -22,9 +26,11 @@ class Card extends Component {
       let favsString = JSON.stringify(favs);
       localStorage.setItem("favoritas", favsString);
     }
+
     this.setState({
-      favoritas: true,
-    });
+      esFavorito: true
+    })
+
   }
 
   Deletefavoritas = () => {
@@ -34,7 +40,7 @@ class Card extends Component {
     let favsString = JSON.stringify(filtrar);
     localStorage.setItem("favoritas", favsString);
     this.setState({
-      favoritas: false,
+      esFavorito: false,
     });
   }
 
@@ -54,9 +60,12 @@ class Card extends Component {
           <Link to={`/movie/${this.props.id}`} className="btn btn-primary">
             Ver más
           </Link>
-          <button onClick={this.agregarfavoritas} className="btn alert-primary">
+          {this.state.esFavorito ? <button className="btn alert-primary" onClick={this.Deletefavoritas}>
+            😡
+          </button> : <button onClick={this.agregarfavoritas}  className="btn alert-primary">
             ♥️
-          </button>
+          </button>}
+
         </div>
       </article>
     );

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "./Card.css";
+import "./Cardserie.css";
 
 class CardSerie extends Component {
   constructor(props) {
@@ -54,7 +54,7 @@ class CardSerie extends Component {
           <Link to={`/serie/${this.props.id}`} className="btn btn-primary">
             Ver más
           </Link>
-          <button onClick={this.agregarfavoritas} className="btn alert-primary">
+          <button onClick={this.agregarfavoritas} onDoubleClick={this.Deletefavoritas} className="btn alert-primary">
             ♥️
           </button>
         </div>

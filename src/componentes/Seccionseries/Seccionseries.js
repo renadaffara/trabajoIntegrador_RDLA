@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Card from "../Card/Card";
 import "./Seccionseries.css"
+import CardSerie from "../CardSerie/CardSerie";
 
 class Seccionseries extends Component {
   constructor(props) {
@@ -23,16 +24,16 @@ class Seccionseries extends Component {
 
   render() {
     return (
-      <section className="seccionpelis">
+      <section className="seccionseries">
         {this.state.datos.length === 0 ? (
           <h3>Cargando...</h3>
         ) : (
           this.state.datos.map(serie => (
-            <Card
+            <CardSerie
               key={serie.id}
               id={serie.id}
               img={serie.poster_path}
-              title={serie.title}
+              title={serie.name}
               description={serie.overview}
             />
           ))
