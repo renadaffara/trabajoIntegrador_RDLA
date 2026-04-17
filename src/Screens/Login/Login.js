@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./Login.css";
 
 
 class Login extends Component {
@@ -43,26 +44,32 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
-        <h2>Login</h2>
-        <form onSubmit={this.submit}>
-          <label>Email:</label>
-          <input
-            type="email"
-            value={this.state.email}
-            onChange={this.controlarEmail}
-            required
-          />
-          <label>Password:</label>
-          <input
-            type="password"
-            value={this.state.password}
-            onChange={this.controlarPassword}
-            required
-          />
-          <button type="submit">Login</button>
-        </form>
-        {this.state.error ? <p className="text-danger">{this.state.error}</p> : null}
+      <div className="login-container">
+        <div className="login-box">
+          <h2>Login</h2>
+          <form onSubmit={this.submit}>
+            <div>
+              <label>Email:</label>
+              <input
+                type="email"
+                value={this.state.email}
+                onChange={this.controlarEmail}
+                required
+              />
+            </div>
+            <div>
+              <label>Password:</label>
+              <input
+                type="password"
+                value={this.state.password}
+                onChange={this.controlarPassword}
+                required
+              />
+            </div>
+            <button type="submit">Login</button>
+          </form>
+          {this.state.error ? <p className="text-danger">{this.state.error}</p> : null}
+        </div>
       </div>
     );
   }
