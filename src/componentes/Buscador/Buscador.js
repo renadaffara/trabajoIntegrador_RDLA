@@ -13,8 +13,37 @@ class Buscador extends Component {
   evitarSubmit(event) {
     event.preventDefault();
 
-    this.props.history.push(`/SearchResults/${this.state.valor}/${this.state.valorSelect}`)
+    if (this.state.valorSelect === "movies") {
+      this.buscarPeliculas();
+    } else {
+      this.buscarSeries();
+    }
+  }
 
+  buscarPeliculas = () => {
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=7afb554b4adc7b0920bf1ba6053e639e&query=${this.state.valor}`)
+      .then(response => response.json())
+      .then(data => {
+        if (data.results.length > 0) {
+          this.props.history.push(`/movie/${data.results[0].id}`);
+        } else {
+          alert("No se encontraron películas");
+        }
+      })
+      .catch(error => console.log(error));
+  }
+
+  buscarSeries = () => {
+    fetch(`https://api.themoviedb.org/3/search/tv?api_key=7afb554b4adc7b0920bf1ba6053e639e&query=${this.state.valor}`)
+      .then(response => response.json())
+      .then(data => {
+        if (data.results.length > 0) {
+          this.props.history.push(`/serie/${data.results[0].id}`);
+        } else {
+          alert("No se encontraron series");
+        }
+      })
+      .catch(error => console.log(error));
   }
 
   controlarCambios(event) {

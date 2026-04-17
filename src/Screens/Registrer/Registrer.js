@@ -3,17 +3,12 @@ import { Link } from "react-router-dom";
 import "./Registrer.css";
 
 class Registrer extends Component {
- constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
       email: "",
       password: ""
     };
-  }
-
-  evitarSubmit(eventoo) {
-    eventoo.preventDefault();
-    console.log(this.state);
   }
 
   controlarEmail(eventoo) {
@@ -22,6 +17,35 @@ class Registrer extends Component {
 
   controlarPassword(eventoo) {
     this.setState({ password: eventoo.target.value });
+  }
+
+  evitarSubmit(eventoo) {
+    eventoo.preventDefault();
+
+    let storage = localStorage.getItem("users");
+  
+    if (storage !== null) {
+      let users = JSON.parse(storage);
+
+      let existe = users.find(user => user.email === this.state.email);
+
+      if (existe === undefined) {
+        users.push({
+          email: this.state.email,
+          password: this.state.password
+        });
+        localStorage.setItem("users", JSON.stringify(users));
+      }
+
+    } else {
+      let users = [{
+        email: this.state.email,
+        password: this.state.password
+      }];
+      localStorage.setItem("users", JSON.stringify(users));
+    }
+
+    this.props.history.push("/login");
   }
 
   render() {
@@ -35,17 +59,25 @@ class Registrer extends Component {
             <form onSubmit={(eventoo) => this.evitarSubmit(eventoo)}>
               
               <div className="form-group">
-                <label htmlFor="email">Email</label>
+                <label>Email</label>
                 <input
-                  className="form-control" 
-                  type="email" placeholder="Ingresá tu email" onChange={(eventoo) => this.controlarEmail(eventoo)} value={this.state.email}/>
+                  className="form-control"
+                  type="email"
+                  placeholder="Ingresá tu email"
+                  onChange={(eventoo) => this.controlarEmail(eventoo)}
+                  value={this.state.email}
+                />
               </div>
 
               <div className="form-group">
-                <label htmlFor="password">Contraseña</label>
+                <label>Contraseña</label>
                 <input
                   className="form-control"
-                  type="password" placeholder="Ingresá tu contraseña" onChange={(eventoo) => this.controlarPassword(eventoo)} value={this.state.password}/>
+                  type="password"
+                  placeholder="Ingresá tu contraseña"
+                  onChange={(eventoo) => this.controlarPassword(eventoo)}
+                  value={this.state.password}
+                />
               </div>
 
               <button type="submit" className="btn btn-primary btn-block">

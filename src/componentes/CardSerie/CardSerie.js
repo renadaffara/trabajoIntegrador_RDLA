@@ -2,39 +2,58 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Cardserie.css";
 
-class CardSerie extends Component {
+class CardSeries extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      favoritas: false,
+      esFavorito: false,
     };
   }
 
+  componentDidMount() {
+    let storage = localStorage.getItem("favoritasSeries");
+    let favs = [];
+
+    if (storage) {
+      favs = JSON.parse(storage);
+    }
+
+    let esFavorito = favs.find((fav) => fav === this.props.id);
+
+    if (esFavorito) {
+      this.setState({
+        esFavorito: true,
+      });
+    }
+  }
+
   agregarfavoritas = () => {
-    let storage = localStorage.getItem("favoritas");
+    let storage = localStorage.getItem("favoritasSeries");
     if (storage !== null) {
       let favsobtenidos = JSON.parse(storage);
       favsobtenidos.push(this.props.id);
       let favsString = JSON.stringify(favsobtenidos);
-      localStorage.setItem("favoritas", favsString);
+      localStorage.setItem("favoritasSeries", favsString);
     } else {
       let favs = [this.props.id];
       let favsString = JSON.stringify(favs);
-      localStorage.setItem("favoritas", favsString);
+      localStorage.setItem("favoritasSeries", favsString);
     }
+
     this.setState({
-      favoritas: true,
-    });
+      esFavorito: true
+    })
+
   }
 
   Deletefavoritas = () => {
-    let password = localStorage.getItem("favoritas");
+    let password = localStorage.getItem("favoritasSeries");
     let storage = JSON.parse(password);
     let filtrar = storage.filter((element) => element !== this.props.id);
     let favsString = JSON.stringify(filtrar);
-    localStorage.setItem("favoritas", favsString);
+    localStorage.setItem("favoritasSeries", favsString);
     this.setState({
-      favoritas: false,
+      esFavorito: false,
     });
   }
 
@@ -54,13 +73,16 @@ class CardSerie extends Component {
           <Link to={`/serie/${this.props.id}`} className="btn btn-primary">
             Ver más
           </Link>
-          <button onClick={this.agregarfavoritas} onDoubleClick={this.Deletefavoritas} className="btn alert-primary">
+          {this.state.esFavorito ? <button className="btn alert-primary" onClick={this.Deletefavoritas}>
+            😡
+          </button> : <button onClick={this.agregarfavoritas}  className="btn alert-primary">
             ♥️
-          </button>
+          </button>}
+
         </div>
       </article>
     );
   }
 }
 
-export default CardSerie;
+export default CardSeries;

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Card from "../../componentes/Card/Card";
+import CardSeries from "../../componentes/CardSerie/CardSerie";
+import "./Favourites.css";
 
 class Favorites extends Component {
   constructor(props) {
@@ -11,9 +13,9 @@ class Favorites extends Component {
   }
 
   componentDidMount() {
-    let storage = localStorage.getItem("favoritas");
-    if (storage !== null) {
-      let favsobtenidos = JSON.parse(storage);
+    let storagePelis = localStorage.getItem("favoritas");
+    if (storagePelis !== null) {
+      let favsobtenidos = JSON.parse(storagePelis);
       let pelisArray = [];
       favsobtenidos.map((id) => {
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=7afb554b4adc7b0920bf1ba6053e639e`)
@@ -25,9 +27,23 @@ class Favorites extends Component {
           .catch((error) => console.log(error));
       }
       );
-      console.log(this.state.peliculasfavs)
     }
-     
+
+    let storageSeries = localStorage.getItem("favoritasSeries");
+    if (storageSeries !== null) {
+      let favsobtenidosSeries = JSON.parse(storageSeries);
+      let seriesArray = [];
+      favsobtenidosSeries.map((id) => {
+        fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=7afb554b4adc7b0920bf1ba6053e639e`)
+          .then((response) => response.json())
+          .then((data) => {
+            seriesArray.push(data)
+            this.setState({ seriesfavs: seriesArray })
+          })
+          .catch((error) => console.log(error));
+      }
+      );
+    }
   }
 
 
@@ -56,7 +72,7 @@ class Favorites extends Component {
         ) : (
           <section className="contenedor-card">
             {this.state.seriesfavs.map((serie) => (
-              <Card
+              <CardSeries
                 key={serie.id}
                 id={serie.id}
                 title={serie.name}
@@ -72,5 +88,3 @@ class Favorites extends Component {
 }
 
 export default Favorites;
-
-

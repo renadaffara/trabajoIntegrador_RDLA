@@ -10,8 +10,21 @@ class Card extends Component {
     };
   }
 
-  componentDidMount () {
-    // Find, para encontrar si la pelicula actual (id) esta faveada en el localstorage, y si lo esta atualizamos el estado
+  componentDidMount() {
+    let storage = localStorage.getItem("favoritas");
+    let favs = [];
+
+    if (storage) {
+      favs = JSON.parse(storage);
+    }
+
+    let esFavorito = favs.find((fav) => fav === this.props.id);
+
+    if (esFavorito) {
+      this.setState({
+        esFavorito: true,
+      });
+    }
   }
 
   agregarfavoritas = () => {

@@ -1,23 +1,50 @@
-.search-form {
-    padding: .5rem 0;
+.Buscador {
+    padding: 0.5rem 0;
     margin-bottom: 20px;
     display: flex;        
-    gap: 5px;            
+    gap: 10px;
+    align-items: center;
 }
 
-.search-form input {
-    flex: 5;              
+.Buscador input {
+    flex: 3;              
     border: 1px solid #eab9e0;
     border-radius: 4px;
-    padding-top: 5px;
-    padding-bottom: 4px;
-    vertical-align: middle;
-    line-height: 1;
+    padding: 8px 12px;
     font-size: 1rem;
 }
 
-.search-form .btn-sm {
+.Buscador input:focus {
+    border-color: #d45d9e;
+    box-shadow: 0 0 5px rgba(212, 93, 158, 0.3);
+}
+
+.Buscador select {
     flex: 1;              
-    line-height: 1;
-    font-size: 0.9rem;
+    border: 1px solid #eab9e0;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 1rem;
+    background-color: white;
+    cursor: pointer;
+    outline: none;
+}
+
+.Buscador select:focus {
+    border-color: #d45d9e;
+    box-shadow: 0 0 5px rgba(212, 93, 158, 0.3);
+}
+
+.Buscador button {
+    flex: 1;              
+    padding: 8px 16px;
+    background-color: #d45d9e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.Buscador button:hover {
+    background-color: #b8357f;
 }

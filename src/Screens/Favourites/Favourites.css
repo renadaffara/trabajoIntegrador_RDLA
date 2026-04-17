@@ -1,0 +1,33 @@
+main {
+    padding: 2rem;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+h2 {
+    color: #000000;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+}
+
+h3 {
+    color: #6c757d;
+    margin-bottom: 2rem;
+}
+
+.contenedor-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: flex-start;
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 1rem;
+    }
+
+    .contenedor-card {
+        justify-content: center;
+    }
+}

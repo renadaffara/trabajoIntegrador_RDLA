@@ -4,7 +4,7 @@ import "./Footer.css";
 function Footer() {
   return (
     <footer className="footer">
-      <p>renata Daffara | Lara Antonena</p>
+      <p>Renata Daffara | Lara Antonena</p>
     </footer>
   );
 }
