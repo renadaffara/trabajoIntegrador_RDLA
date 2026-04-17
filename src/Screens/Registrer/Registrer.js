@@ -50,49 +50,50 @@ class Registrer extends Component {
 
   render() {
     return (
-      <>
-        <h2 className="alert alert-primary">Registro</h2>
+      <div className="register-container">
+        <div className="register-box">
+          <h2>Registro</h2>
 
-        <div className="row justify-content-center">
-          <div className="col-md-6">
-            
-            <form onSubmit={(eventoo) => this.evitarSubmit(eventoo)}>
-              
-              <div className="form-group">
-                <label>Email</label>
-                <input
-                  className="form-control"
-                  type="email"
-                  placeholder="Ingresá tu email"
-                  onChange={(eventoo) => this.controlarEmail(eventoo)}
-                  value={this.state.email}
-                />
-              </div>
+          <div className="row justify-content-center">
+            <div className="col-md-6">
+              <form onSubmit={(eventoo) => this.evitarSubmit(eventoo)}>
+                
+                <div className="form-group">
+                  <label>Email</label>
+                  <input
+                    className="form-control"
+                    type="email"
+                    placeholder="Ingresá tu email"
+                    onChange={(eventoo) => this.controlarEmail(eventoo)}
+                    value={this.state.email}
+                  />
+                </div>
 
-              <div className="form-group">
-                <label>Contraseña</label>
-                <input
-                  className="form-control"
-                  type="password"
-                  placeholder="Ingresá tu contraseña"
-                  onChange={(eventoo) => this.controlarPassword(eventoo)}
-                  value={this.state.password}
-                />
-              </div>
+                <div className="form-group">
+                  <label>Contraseña</label>
+                  <input
+                    className="form-control"
+                    type="password"
+                    placeholder="Ingresá tu contraseña"
+                    onChange={(eventoo) => this.controlarPassword(eventoo)}
+                    value={this.state.password}
+                  />
+                </div>
 
-              <button type="submit" className="btn btn-primary btn-block">
-                Registrarse
-              </button>
+                <button type="submit" className="btn btn-primary btn-block">
+                  Registrarse
+                </button>
 
-            </form>
+              </form>
 
-            <p className="mt-3 text-center">
-              ¿Ya tenés cuenta? <Link to="/login">Iniciar sesión</Link>
-            </p>
+              <p className="mt-3 text-center">
+                ¿Ya tenés cuenta? <Link to="/login">Iniciar sesión</Link>
+              </p>
 
+            </div>
           </div>
         </div>
-      </>
+      </div>
     );
   }
 }
