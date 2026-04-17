@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .divEnCartel {
   display: flex;
   flex-direction: column;
@@ -15,11 +14,10 @@
   margin-bottom: 20px;
   width: 100%;
   max-width: 400px;
-=======
+}
 .filter-form {
     display: flex;
     flex-direction: column;
->>>>>>> 9244fb354e6da2a814606c0fc1d67bb2c8fb2cc8
 }
 
 .barra_busqueda label {
@@ -46,7 +44,7 @@
 button {
   margin-top: 20px;
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #712b61;
   color: white;
   border: none;
   border-radius: 5px;

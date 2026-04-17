@@ -11,6 +11,7 @@ import Detail from "./Screens/Detail/Detail";
 import Movies from "./Screens/Movies/Movies";
 import DetailSeries from "./Screens/DetailSeries/DetailSeries";
 import MiPerfil from "./Screens/MiPerfil/MiPerfil";
+import Series from "./Screens/Series/Series";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
            <Route path="/serie/:id" component={DetailSeries} />
            <Route path="/favoritas" component={Favourites} />
            <Route path="/peliculas" component={Movies} />
+            <Route path="/series" component={Series} />
            <Route path="/miperfil" component={MiPerfil} />
           <Route path="" component={NotFound} />
         </Switch>
