@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .divEnCartel {
   display: flex;
   flex-direction: column;
@@ -15,11 +14,6 @@
   margin-bottom: 20px;
   width: 100%;
   max-width: 400px;
-=======
-.filter-form {
-    display: flex;
-    flex-direction: column;
->>>>>>> 9244fb354e6da2a814606c0fc1d67bb2c8fb2cc8
 }
 
 .barra_busqueda label {
@@ -66,7 +60,7 @@ button:hover {
   width: 100%;
 }
 
-
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .divEnCartel {
     padding: 10px;

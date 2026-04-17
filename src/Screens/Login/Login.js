@@ -1,4 +1,4 @@
-{/*import React, { Component } from "react";
+import React, { Component } from "react";
 
 class Login extends Component {
  constructor(props) {
@@ -25,6 +25,6 @@ class Login extends Component {
   render() {
      
     };
-  }}; 
+  }; 
 
-  export default Login; */}
+  export default Login; 
