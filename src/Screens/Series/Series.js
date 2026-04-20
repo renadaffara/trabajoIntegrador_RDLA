@@ -14,7 +14,7 @@ class Series extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=7afb554b4adc7b0920bf1ba6053e639e&page=${this.state.page}`)
+    fetch(`https://api.themoviedb.org/3/tv/popular?api_key=7afb554b4adc7b0920bf1ba6053e639e&page=${this.state.page}`)
       .then(response => response.json())
       .then(data =>
         this.setState({
