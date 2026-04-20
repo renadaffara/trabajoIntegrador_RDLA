@@ -1,4 +1,4 @@
-.login-container {
+.bodyregister {
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -7,7 +7,7 @@
   padding: 2rem;
 }
 
-.login-box {
+.formregister {
   background: white;
   border-radius: 10px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
@@ -16,27 +16,27 @@
   max-width: 400px;
 }
 
-.login-box h2 {
+.formregister h1,
+.formregister h2 {
   color: #333;
   text-align: center;
   margin-bottom: 2rem;
   font-weight: bold;
 }
 
-.login-box form {
+.formregister form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
 }
 
-.login-box label {
+.h3register {
   color: #555;
   font-weight: 600;
   margin-bottom: 0.5rem;
   display: block;
 }
 
-.login-box input {
+.inputregister {
   width: 100%;
   padding: 0.75rem;
   border: 1px solid #ddd;
@@ -44,12 +44,12 @@
   font-size: 1rem;
 }
 
-.login-box input:focus {
+.inputregister:focus {
   border-color: #e9b7e4;
   box-shadow: 0 0 5px rgba(215, 198, 210, 0.5);
 }
 
-.login-box button {
+.formregister button {
   padding: 0.75rem;
   background: #d45d9e;
   color: white;
@@ -58,26 +58,26 @@
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
+  width: 100%;
 }
 
-.login-box button:hover {
+.formregister button:hover {
   box-shadow: 0 8px 20px rgba(225, 144, 208, 0.6);
-  opacity: 0.95;
 }
 
-.text-danger {
-  color: #dc3545;
+.errores {
   text-align: center;
-  margin-top: 1rem;
-  font-weight: 500;
+  margin-top: 1.5rem;
+  color: #dc3545;
 }
 
 @media (max-width: 576px) {
-  .login-box {
+  .formregister {
     padding: 2rem 1rem;
   }
 
-  .login-box h2 {
+  .formregister h1,
+  .formregister h2 {
     font-size: 1.5rem;
   }
 }
