@@ -10,10 +10,7 @@ class Login extends Component {
     };
   };
 
-  evitarSubmit= (evento)=> {
-       evento.preventDefault();
-       this.MandarSubmit();
-  };
+ 
 
   controlarEmail = (evento) => {
     this.setState({ email: evento.target.value });
@@ -49,7 +46,7 @@ class Login extends Component {
     
     return (
         <div className="bodyregister">
-            <form className='formregister' onSubmit={(evento) => this.evitarSubmit(evento)}>
+            <form className='formregister' onSubmit={(evento) => this.MandarSubmit(evento)}>
                 <h1 id='titulo'>¡Bienvenido de vuelta!</h1>
                 <h2 id='h2register' className='nav-link'>Ingresar a tu cuenta</h2>
                 <h3 className='h3register'>Ingrese su mail</h3>
