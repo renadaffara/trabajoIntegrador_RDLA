@@ -16,24 +16,30 @@
   max-width: 400px;
 }
 
-.login-box h2 {
+.login-box h1 {
   color: #333;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.login-box h2 {
+  color: #555;
   text-align: center;
   margin-bottom: 2rem;
   font-weight: bold;
+}
+
+.login-box h3 {
+  color: #555;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
 .login-box form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-}
-
-.login-box label {
-  color: #555;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  display: block;
 }
 
 .login-box input {
@@ -45,6 +51,7 @@
 }
 
 .login-box input:focus {
+  outline: none;
   border-color: #e9b7e4;
   box-shadow: 0 0 5px rgba(215, 198, 210, 0.5);
 }
@@ -58,6 +65,7 @@
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
+  width: 100%;
 }
 
 .login-box button:hover {
@@ -65,10 +73,9 @@
   opacity: 0.95;
 }
 
-.text-danger {
+.errores {
   color: #dc3545;
   text-align: center;
-  margin-top: 1rem;
   font-weight: 500;
 }
 
@@ -78,6 +85,95 @@
   }
 
   .login-box h2 {
+    font-size: 1.5rem;
+  }
+}
+
+.bodyregister {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(218, 193, 209);
+  padding: 2rem;
+}
+
+.formregister {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  padding: 3rem 2rem;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+#titulo {
+  color: #333;
+  text-align: center;
+  margin-bottom: 0rem;
+  font-weight: bold;
+}
+
+#h2register {
+  color: #555;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.h3register {
+  color: #555;
+  font-weight: 600;
+  margin-bottom: 0rem;
+}
+
+.inputregister {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.inputregister:focus {
+  outline: none;
+  border-color: #e9b7e4;
+  box-shadow: 0 0 5px rgba(215, 198, 210, 0.5);
+}
+
+.formregister button {
+  padding: 0.75rem;
+  background: #d45d9e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+}
+
+.formregister button:hover {
+  box-shadow: 0 8px 20px rgba(225, 144, 208, 0.6);
+  opacity: 0.95;
+}
+
+.errores {
+  color: #dc3545;
+  text-align: center;
+  font-weight: 500;
+  margin: 0;
+}
+
+@media (max-width: 576px) {
+  .formregister {
+    padding: 2rem 1rem;
+  }
+
+  #h2register {
     font-size: 1.5rem;
   }
 }
