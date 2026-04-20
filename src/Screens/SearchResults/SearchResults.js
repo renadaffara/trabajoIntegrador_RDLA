@@ -15,7 +15,12 @@ class SearchResults extends Component {
     let valor = this.props.match.params.valor;
     let seleccionado = this.props.match.params.seleccionado;
 
-    fetch(`https://api.themoviedb.org/3/search/${seleccionado}?api_key=0185f70c5f71076c61606afd4f75803b&query=${valor}`)
+    console.log(seleccionado);
+    console.log(valor);
+    
+    
+
+    fetch(`https://api.themoviedb.org/3/search/${seleccionado}?api_key=7afb554b4adc7b0920bf1ba6053e639e&query=${valor}`)
       .then(response => response.json())
       .then(data =>
         this.setState({
@@ -33,9 +38,17 @@ class SearchResults extends Component {
         <h2 className="alert alert-primary">Resultados de búsqueda</h2>
         {this.state.resultados.length === 0 ? (<h3 className="alert alert-danger">No se encontraron resultados</h3>) : 
         (this.state.resultados.map(item => 
-          (this.props.match.params.type === "movie" ? 
-          (<Card key={item.id} info={item} />) : 
-          (<CardSeries key={item.id} info={item} />) 
+          (this.props.match.params.valor === "movie" ? 
+          (<Card  key={pelicula.id}
+              id={pelicula.id}
+              img={pelicula.poster_path}
+              title={pelicula.title}
+              description={pelicula.overview} />) : 
+          (<CardSeries key={serie.id}
+              id={serie.id}
+              img={serie.poster_path}
+              title={serie.name}
+              description={serie.overview} />) 
           )))}
       </div>
     );

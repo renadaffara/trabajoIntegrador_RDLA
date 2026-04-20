@@ -6,7 +6,7 @@ class Buscador extends Component {
     super(props);
     this.state = {
       valor: "",
-      valorSelect: "movies"
+      valorSelect: "movie"
     };
   }
 
