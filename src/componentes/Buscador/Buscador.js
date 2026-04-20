@@ -6,45 +6,18 @@ class Buscador extends Component {
     super(props);
     this.state = {
       valor: "",
-      valorSelect: ""
+      valorSelect: "movies"
     };
   }
 
   evitarSubmit(event) {
     event.preventDefault();
+    console.log(this.props);
+    
 
-    if (this.state.valorSelect === "movies") {
-      this.buscarPeliculas();
-    } else {
-      this.buscarSeries();
-    }
+   this.props.history.push(`/SearchResults/${this.state.valorSelect}/${this.state.valor}`)
   }
 
-  buscarPeliculas = () => {
-    fetch(`https://api.themoviedb.org/3/search/movie?api_key=7afb554b4adc7b0920bf1ba6053e639e&query=${this.state.valor}`)
-      .then(response => response.json())
-      .then(data => {
-        if (data.results.length > 0) {
-          this.props.history.push(`/movie/${data.results[0].id}`);
-        } else {
-          alert("No se encontraron películas");
-        }
-      })
-      .catch(error => console.log(error));
-  }
-
-  buscarSeries = () => {
-    fetch(`https://api.themoviedb.org/3/search/tv?api_key=7afb554b4adc7b0920bf1ba6053e639e&query=${this.state.valor}`)
-      .then(response => response.json())
-      .then(data => {
-        if (data.results.length > 0) {
-          this.props.history.push(`/serie/${data.results[0].id}`);
-        } else {
-          alert("No se encontraron series");
-        }
-      })
-      .catch(error => console.log(error));
-  }
 
   controlarCambios(event) {
     this.setState({ valor: event.target.value });

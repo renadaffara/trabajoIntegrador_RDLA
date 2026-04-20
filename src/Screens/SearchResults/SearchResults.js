@@ -12,8 +12,8 @@ class SearchResults extends Component {
 
   componentDidMount() {
 
-    let valor = this.props.match.params.query;
-    let seleccionado = this.props.match.params.type;
+    let valor = this.props.match.params.valor;
+    let seleccionado = this.props.match.params.seleccionado;
 
 
     fetch(`https://api.themoviedb.org/3/search/${seleccionado}?api_key=7afb554b4adc7b0920bf1ba6053e639e&query=${valor}`)
@@ -27,6 +27,8 @@ class SearchResults extends Component {
   }
 
   render() {
+    console.log(this.state.resultados);
+    
     return (
       <div className="container">
         <h2 className="alert alert-primary">Resultados de búsqueda</h2>

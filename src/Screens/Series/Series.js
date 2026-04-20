@@ -35,7 +35,7 @@ class Series extends Component {
       () => this.filtrarPeliculas()
     );
   }
-  
+
   filtrarPeliculas() {
     let datosFiltrados = this.state.datosCopia.filter((serie) =>
       serie.name.toLowerCase().includes(this.state.valor.toLowerCase())
@@ -53,7 +53,7 @@ class Series extends Component {
       .then(response => response.json())
       .then(data => {
         let listaSeries = this.state.datos;
-        data.results.map((peli) => listaSeries.push(peli));
+        data.results.map((serie) => listaSeries.push(serie));
         this.setState({
           datos: listaSeries,
           datosCopia: listaSeries,
