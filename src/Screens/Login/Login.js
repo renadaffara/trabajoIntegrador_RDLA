@@ -8,7 +8,12 @@ class Login extends Component {
       password: "",
       error: ""
     };
-  }
+  };
+
+  evitarSubmit= (evento)=> {
+       evento.preventDefault();
+       this.MandarSubmit();
+  };
 
   controlarEmail = (evento) => {
     this.setState({ email: evento.target.value });
@@ -18,7 +23,7 @@ class Login extends Component {
     this.setState({ password: evento.target.value });
   };
 
-  submit = (evento) => {
+  MandarSubmit = (evento) => {
     evento.preventDefault();
     const usersStorage = localStorage.getItem("users");
     if (usersStorage === null) {
@@ -44,7 +49,7 @@ class Login extends Component {
     
     return (
         <div className="bodyregister">
-            <form className='formregister' onSubmit={(event) => this.evitarSubmit(event)}>
+            <form className='formregister' onSubmit={(evento) => this.evitarSubmit(evento)}>
                 <h1 id='titulo'>¡Bienvenido de vuelta!</h1>
                 <h2 id='h2register' className='nav-link'>Ingresar a tu cuenta</h2>
                 <h3 className='h3register'>Ingrese su mail</h3>
@@ -53,8 +58,8 @@ class Login extends Component {
                     required
                     type="email"
                     placeholder="Agregue su mail"
-                    onChange={(event) => this.controlarCambios(event)}
-                    value={this.state.valor}
+                    onChange={(evento) => this.controlarEmail(evento)}
+                    value={this.state.email}
                 />
                 <h3 className='h3register'>Ingrese su contraseña</h3>
                 <input
@@ -62,8 +67,8 @@ class Login extends Component {
                     required
                     type='password'
                     placeholder="Agregue su contraseña"
-                    onChange={(event) => this.controlarCambios2(event)}
-                    value={this.state.valor2}
+                    onChange={(evento) => this.controlarPassword(evento)}
+                    value={this.state.password}
                 />
                 <p className='errores'>{this.state.error}</p>
                 <button type="submit">Login</button>
