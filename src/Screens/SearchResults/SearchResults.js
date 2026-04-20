@@ -1,6 +1,7 @@
 
 import React, { Component } from "react";
 import Card from "../../componentes/Card/Card";
+import CardSeries from "../../componentes/CardSerie/CardSerie";
 class SearchResults extends Component {
   constructor(props) {
     super(props);
@@ -21,7 +22,7 @@ class SearchResults extends Component {
           resultados: data.results
         })
       )
-      .catch(err => console.log(err));
+      .catch(error => console.log(error));
   }
 
   render() {
@@ -30,13 +31,14 @@ class SearchResults extends Component {
     return (
       <div className="container">
         <h2 className="alert alert-primary">Resultados de búsqueda</h2>
-        <section className="row cards">
-          {this.state.resultados.map(item => (
-            <Card key={item.id} info={item} />
-          ))}
-        </section>
+        {this.state.resultados.length === 0 ? (<h3 className="alert alert-danger">No se encontraron resultados</h3>) : 
+        (this.state.resultados.map(item => 
+          (this.props.match.params.type === "movie" ? 
+          (<Card key={item.id} info={item} />) : 
+          (<CardSeries key={item.id} info={item} />) 
+          )))}
       </div>
     );
   }
 }
-export default SearchResults
+export default SearchResults;
