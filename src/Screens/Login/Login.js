@@ -46,7 +46,6 @@ class Login extends Component {
     return (
         <div className="bodyregister">
             <form className='formregister' onSubmit={(evento) => this.MandarSubmit(evento)}>
-                <h1 id='titulo'>¡Bienvenido de vuelta!</h1>
                 <h2 id='h2register' className='nav-link'>Ingresar a tu cuenta</h2>
                 <h3 className='h3register'>Ingrese su mail</h3>
                 <input
