@@ -15,7 +15,7 @@ class SearchResults extends Component {
     let valor = this.props.match.params.valor;
     let seleccionado = this.props.match.params.seleccionado;
 
-    fetch(`https://api.themoviedb.org/3/search/${seleccionado}?api_key=7afb554b4adc7b0920bf1ba6053e639e&query=${valor}`)
+    fetch(`https://api.themoviedb.org/3/search/${seleccionado}?api_key=0185f70c5f71076c61606afd4f75803b&query=${valor}`)
       .then(response => response.json())
       .then(data =>
         this.setState({

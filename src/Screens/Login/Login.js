@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import "./Login.css"
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -10,7 +10,6 @@ class Login extends Component {
     };
   };
 
- 
 
   controlarEmail = (evento) => {
     this.setState({ email: evento.target.value });
