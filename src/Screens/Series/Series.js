@@ -19,7 +19,7 @@ class Series extends Component {
       .then(data =>
         this.setState({
           datos: data.results,
-          datosCopia: data.results
+          datos2: data.results
         })
       )
       .catch(error => console.log(error));
@@ -35,21 +35,21 @@ class Series extends Component {
       () => this.filtrarPeliculas()
     );
   }
-
+  
   filtrarPeliculas() {
-    let datosFiltrados = this.state.datosCopia.filter((peli) =>
-      peli.title.toLowerCase().includes(this.state.valor.toLowerCase())
+    let datosFiltrados = this.state.datosCopia.filter((serie) =>
+      serie.name.toLowerCase().includes(this.state.valor.toLowerCase())
     );
 
     this.setState({
-      datosCopia: datosFiltrados
+      datos: datosFiltrados
     });
   }
 
   cargarMas() {
     let paginaSiguiente = this.state.page + 1;
 
-    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=7afb554b4adc7b0920bf1ba6053e639e&page=${paginaSiguiente}`)
+    fetch(`https://api.themoviedb.org/3/tv/popular?api_key=7afb554b4adc7b0920bf1ba6053e639e&page=${paginaSiguiente}`)
       .then(response => response.json())
       .then(data => {
         let listaSeries = this.state.datos;

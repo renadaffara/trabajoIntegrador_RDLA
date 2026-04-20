@@ -35,14 +35,13 @@ class Movies extends Component {
       () => this.filtrarPeliculas()
     );
   }
-
   filtrarPeliculas() {
     let datosFiltrados = this.state.datosCopia.filter((peli) =>
       peli.title.toLowerCase().includes(this.state.valor.toLowerCase())
     );
 
     this.setState({
-      datosCopia: datosFiltrados
+      datos: datosFiltrados
     });
   }
 
