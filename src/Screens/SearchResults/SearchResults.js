@@ -1,6 +1,7 @@
 
 import React, { Component } from "react";
 import Card from "../../componentes/Card/Card";
+import CardSeries from "../../componentes/CardSerie/CardSerie";
 class SearchResults extends Component {
   constructor(props) {
     super(props);
@@ -9,31 +10,32 @@ class SearchResults extends Component {
     };
   }
 
-  buscarPeliculas() {
+  componentDidMount() {
 
-    const query = this.props.match.params.query;
-    const type = this.props.match.params.type;
+    let valor = this.props.match.params.query;
+    let seleccionado = this.props.match.params.type;
 
 
-    fetch(`https://api.themoviedb.org/3/search/${type}?api_key=7afb554b4adc7b0920bf1ba6053e639e&query=${query}`)
+    fetch(`https://api.themoviedb.org/3/search/${seleccionado}?api_key=7afb554b4adc7b0920bf1ba6053e639e&query=${valor}`)
       .then(response => response.json())
       .then(data =>
         this.setState({
           resultados: data.results
         })
       )
-      .catch(err => console.log(err));
+      .catch(error => console.log(error));
   }
 
   render() {
     return (
       <div className="container">
         <h2 className="alert alert-primary">Resultados de búsqueda</h2>
-        <section className="row cards">
-          {this.state.resultados.map(item => (
-            <Card key={item.id} info={item} />
-          ))}
-        </section>
+        {this.state.resultados.length === 0 ? (<h3 className="alert alert-danger">No se encontraron resultados</h3>) : 
+        (this.state.resultados.map(item => 
+          (this.props.match.params.type === "movie" ? 
+          (<Card key={item.id} info={item} />) : 
+          (<CardSeries key={item.id} info={item} />) 
+          )))}
       </div>
     );
   }
