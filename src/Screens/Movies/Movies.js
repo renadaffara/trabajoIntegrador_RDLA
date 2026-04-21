@@ -9,7 +9,8 @@ class Movies extends Component {
       datos: [],
       datosCopia: [],
       valor: "",
-      page: 1
+      page: 1,
+      loading: true
     };
   }
 
@@ -19,7 +20,8 @@ class Movies extends Component {
       .then(data =>
         this.setState({
           datos: data.results,
-          datos2: data.results
+          datosCopia: data.results,
+          loading: false
         })
       )
       .catch(error => console.log(error));
@@ -40,6 +42,8 @@ class Movies extends Component {
       peli.title.toLowerCase().includes(this.state.valor.toLowerCase())
     );
 
+    console.log(datosFiltrados)
+
     this.setState({
       datos: datosFiltrados
     });
@@ -55,8 +59,9 @@ class Movies extends Component {
         data.results.map((peli) => listaPelis.push(peli));
         this.setState({
           datos: listaPelis,
-          datos2: listaPelis,
-          page: paginaSiguiente
+          datosCopia: listaPelis,
+          page: paginaSiguiente,
+          loading: false
         })
       })
       .catch(error => console.log(error));
@@ -65,11 +70,7 @@ class Movies extends Component {
   render() {
     return (
       <div>
-        {this.state.datos.length === 0 ? (
-          <p>Cargando...</p>
-        ) : (
-          <div className="divEnCartel">
-            <form
+         <form
               className="barra_busqueda"
               onSubmit={(event) => this.evitarSubmit(event)}
             >
@@ -81,29 +82,24 @@ class Movies extends Component {
                 className="busqueda"
               />
             </form>
+        {this.state.loading ? (
+          <p>Cargando...</p>
+        ) : (
+          <div className="divEnCartel">
+           
 
             <div className="movies-container">
+
+              {this.state.datos.length === 0 ?  <p>no hay nada</p> :this.state.datos.map((peli, idx) => (
+                <Card
+                  key={idx + 1}
+                  img={peli.poster_path}
+                  title={peli.title}
+                  id={peli.id}
+                  overview={peli.overview}
+                />
+              )) }
               
-              { this.state.valor === "" ?
-              (this.state.datos.map((peli, idx) => (
-                <Card
-                  key={idx + 1}
-                  img={peli.poster_path}
-                  title={peli.title}
-                  id={peli.id}
-                  overview={peli.overview}
-                />
-              ))) : 
-              (this.state.datos2.map((peli, idx) => (
-                <Card
-                  key={idx + 1}
-                  img={peli.poster_path}
-                  title={peli.title}
-                  id={peli.id}
-                  overview={peli.overview}
-                />
-              )))
-            }
               
               
             </div>
