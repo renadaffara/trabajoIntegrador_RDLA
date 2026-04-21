@@ -37,3 +37,56 @@
     color: #340d1e;
     font-size: 20px;
 }
+
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+  }
+
+  .logo-container {
+    margin-bottom: 10px;
+  }
+
+  .logo-container img {
+    height: 70px;
+  }
+
+  .logo-text {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .menu li {
+    margin: 8px 0;
+  }
+
+  .menu li a {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav {
+    padding: 10px;
+  }
+
+  .logo-container img {
+    height: 60px;
+  }
+
+  .logo-text {
+    font-size: 1rem;
+  }
+
+  .menu li a {
+    font-size: 16px;
+  }
+}

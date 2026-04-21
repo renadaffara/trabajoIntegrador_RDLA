@@ -1,50 +1,80 @@
 .Buscador {
-    padding: 0.5rem 0;
-    margin-bottom: 20px;
-    display: flex;        
-    gap: 10px;
-    align-items: center;
+  padding: 0.5rem 0;
+  margin-bottom: 20px;
 }
 
 .Buscador input {
-    flex: 3;              
-    border: 1px solid #eab9e0;
-    border-radius: 4px;
-    padding: 8px 12px;
-    font-size: 1rem;
+  display: inline-block;
+  vertical-align: middle;
+  width: 55%;
+  border: 1px solid #eab9e0;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 1rem;
+  margin-right: 10px;
 }
 
 .Buscador input:focus {
-    border-color: #d45d9e;
-    box-shadow: 0 0 5px rgba(212, 93, 158, 0.3);
+  border-color: #d45d9e;
+  box-shadow: 0 0 5px rgba(212, 93, 158, 0.3);
 }
 
 .Buscador select {
-    flex: 1;              
-    border: 1px solid #eab9e0;
-    border-radius: 4px;
-    padding: 8px 12px;
-    font-size: 1rem;
-    background-color: white;
-    cursor: pointer;
-    outline: none;
-}
-
-.Buscador select:focus {
-    border-color: #d45d9e;
-    box-shadow: 0 0 5px rgba(212, 93, 158, 0.3);
+  display: inline-block;
+  vertical-align: middle;
+  width: 20%;
+  border: 1px solid #eab9e0;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 1rem;
+  background-color: white;
+  margin-right: 10px;
 }
 
 .Buscador button {
-    flex: 1;              
-    padding: 8px 16px;
-    background-color: #d45d9e;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
+  display: inline-block;
+  vertical-align: middle;
+  width: 20%;
+  padding: 8px 16px;
+  background-color: #d45d9e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
 }
 
 .Buscador button:hover {
-    background-color: #b8357f;
+  background-color: #b8357f;
+}
+@media (max-width: 768px) {
+  .Buscador input {
+    width: 45%;
+  }
+
+  .Buscador select {
+    width: 25%;
+  }
+
+  .Buscador button {
+    width: 25%;
+  }
+}
+
+@media (max-width: 480px) {
+  .Buscador input {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .Buscador select {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .Buscador button {
+    display: block;
+    width: 100%;
+  }
 }

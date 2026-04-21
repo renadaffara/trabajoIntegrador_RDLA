@@ -18,8 +18,12 @@ h3 {
 .contenedor-card {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
     justify-content: flex-start;
+}
+
+.contenedor-card .single-card-movie {
+  margin-right: 1rem;
+  margin-bottom: 1rem;
 }
 
 @media (max-width: 768px) {
@@ -31,3 +35,4 @@ h3 {
         justify-content: center;
     }
 }
+

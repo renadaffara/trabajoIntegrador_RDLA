@@ -62,7 +62,7 @@ class Card extends Component {
       <article className="single-card-movie">
         <img
           src={`https://image.tmdb.org/t/p/w500/${this.props.img}`}
-          className="card-img-top"
+          className="card-imagen"
           alt={this.props.title}
         />
 
@@ -73,9 +73,9 @@ class Card extends Component {
           <Link to={`/movie/${this.props.id}`} className="btn btn-primary">
             Ver más
           </Link>
-          {this.state.esFavorito ? <button className="btn alert-primary" onClick={this.Deletefavoritas}>
+          {this.state.esFavorito ? <button className="btn btn-danger" onClick={this.Deletefavoritas}>
             😡
-          </button> : <button onClick={this.agregarfavoritas}  className="btn alert-primary">
+          </button> : <button onClick={this.agregarfavoritas}  className="btn btn-primary">
             ♥️
           </button>}
 

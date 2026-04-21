@@ -25,3 +25,27 @@
     font-size: 0.9rem;
     margin-top: 5px;
 }
+
+@media (max-width: 768px) {
+  .Detailcontenedor .Detallitos {
+    width: 70%;
+  }
+}
+
+@media (max-width: 480px) {
+  .Detailcontenedor .Detallitos {
+    width: 90%;
+  }
+
+  .Titulop {
+    font-size: 1.2rem;
+  }
+
+  .overview {
+    font-size: 0.9rem;
+  }
+
+  .extra {
+    font-size: 0.85rem;
+  }
+}
