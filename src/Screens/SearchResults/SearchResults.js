@@ -37,18 +37,18 @@ class SearchResults extends Component {
       <div className="container">
         <h2 className="alert alert-primary">Resultados de búsqueda</h2>
         {this.state.resultados.length === 0 ? (<h3 className="alert alert-danger">No se encontraron resultados</h3>) : 
-        (this.state.resultados.map(item => 
+        (this.state.resultados.map(item=> 
           (this.props.match.params.valor === "movie" ? 
-          (<Card  key={pelicula.id}
-              id={pelicula.id}
-              img={pelicula.poster_path}
-              title={pelicula.title}
-              description={pelicula.overview} />) : 
-          (<CardSeries key={serie.id}
-              id={serie.id}
-              img={serie.poster_path}
-              title={serie.name}
-              description={serie.overview} />) 
+          (<Card  
+              key={item.id}
+              img={item.poster_path}
+              title={item.title}
+              description={item.overview} />) : 
+          (<CardSeries 
+              key={item.id}
+              img={item.poster_path}
+              title={item.name}
+              description={item.overview} />) 
           )))}
       </div>
     );

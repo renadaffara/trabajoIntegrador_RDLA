@@ -10,15 +10,13 @@
 .barra_busqueda {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
+  align-items: center; 
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto 20px auto; 
   width: 100%;
-  max-width: 400px;
-}
-
-.barra_busqueda label {
-  margin-bottom: 10px;
-  font-weight: bold;
+  max-width: 600px;
+  text-align: center;
 }
 
 .busqueda {
