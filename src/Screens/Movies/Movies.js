@@ -90,7 +90,7 @@ class Movies extends Component {
 
             <div className="movies-container">
 
-              {this.state.datos.length === 0 ?  <p>no hay nada</p> :this.state.datos.map((peli, idx) => (
+              {this.state.datos.length === 0 ?  <p>No hay resultados similares</p> :this.state.datos.map((peli, idx) => (
                 <Card
                   key={idx + 1}
                   img={peli.poster_path}
