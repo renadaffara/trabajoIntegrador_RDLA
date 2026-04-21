@@ -1,7 +1,6 @@
 import React, { Component } from "react";
+import Card from "../../componentes/Card/Card";
 import "./Series.css";
-import CardSerie from "../../componentes/CardSerie/CardSerie";
-
 
 class Series extends Component {
   constructor(props) {
@@ -10,8 +9,7 @@ class Series extends Component {
       datos: [],
       datosCopia: [],
       valor: "",
-      page: 1,
-      loading: true
+      page: 1
     };
   }
 
@@ -21,8 +19,7 @@ class Series extends Component {
       .then(data =>
         this.setState({
           datos: data.results,
-          datosCopia: data.results,
-          loading: false
+          datos2: data.results
         })
       )
       .catch(error => console.log(error));
@@ -35,11 +32,11 @@ class Series extends Component {
   controlarCambios(event) {
     this.setState(
       { valor: event.target.value },
-      () => this.filtrarSeries()
+      () => this.filtrarPeliculas()
     );
   }
 
-  filtrarSeries() {
+  filtrarPeliculas() {
     let datosFiltrados = this.state.datosCopia.filter((serie) =>
       serie.name.toLowerCase().includes(this.state.valor.toLowerCase())
     );
@@ -60,8 +57,7 @@ class Series extends Component {
         this.setState({
           datos: listaSeries,
           datosCopia: listaSeries,
-          page: paginaSiguiente,
-          loading: false
+          page: paginaSiguiente
         })
       })
       .catch(error => console.log(error));
@@ -70,7 +66,11 @@ class Series extends Component {
   render() {
     return (
       <div>
-         <form
+        {this.state.datos.length === 0 ? (
+          <p>Cargando...</p>
+        ) : (
+          <div className="divEnCartel">
+            <form
               className="barra_busqueda"
               onSubmit={(event) => this.evitarSubmit(event)}
             >
@@ -82,22 +82,30 @@ class Series extends Component {
                 className="busqueda"
               />
             </form>
-        {this.state.loading ? (
-          <p>Cargando...</p>
-        ) : (
-          <div className="divEnCartel">
-           
+
             <div className="movies-container">
               
-            
-              {this.state.datos.length === 0 ?  <p>No hay resultados similares</p> :this.state.datos.map((serie, idx) => (
-                <CardSerie
-              key={idx + 1}
-              img={serie.poster_path}
-              title={serie.name}
-              description={serie.overview}
-                />          
-              ))}
+              { this.state.valor === "" ?
+              (this.state.datos.map((serie, idx) => (
+                <Card
+                  key={idx + 1}
+                  img={serie.poster_path}
+                  title={serie.name}
+                  id={serie.id}
+                  overview={serie.overview}
+                />
+              ))) : 
+              (this.state.datosCopia.map((serie, idx) => (
+                <Card
+                  key={idx + 1}
+                  img={serie.poster_path}
+                  title={serie.title}
+                  id={serie.id}
+                  overview={serie.overview}
+                />
+              )))
+            }
+              
               
             </div>
 

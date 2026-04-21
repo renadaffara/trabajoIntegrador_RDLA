@@ -10,15 +10,16 @@
 .barra_busqueda {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
+  gap: 10px;
   margin-bottom: 20px;
   width: 100%;
-  max-width: 400px;
+  max-width: 600px;
 }
 
 .barra_busqueda label {
-  margin-bottom: 10px;
-  font-weight: bold;
+  margin-bottom: 5px;
+  align-self: flex-start;
 }
 
 .busqueda {
@@ -60,7 +61,7 @@ button:hover {
   width: 100%;
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 768px) {
   .divEnCartel {
     padding: 10px;

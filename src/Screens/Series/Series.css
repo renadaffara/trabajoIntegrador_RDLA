@@ -60,7 +60,7 @@ button:hover {
   width: 100%;
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 768px) {
   .divEnCartel {
     padding: 10px;
